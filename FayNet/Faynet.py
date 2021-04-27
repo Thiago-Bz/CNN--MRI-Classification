@@ -32,7 +32,7 @@ print('Iniciando o desenvolvimento da FayNet....')
 from tensorflow.keras.utils import to_categorical
 #(train_images,train_labels), (test_images,test_labels) = mnist.load_data()
 # No caso de vocês (imagem de ressonância: colocar as imagens dentro das estruturas train_images e test_images abaixo):
-data_dir = 'C:/Users/Bezerra/Documents/UNB/TCC/Thiago/Machine learning/Testes_code/dataset'
+data_dir = '/content/drive/MyDrive/TCC/dataset'
 # x = 'C:/Users/Bezerra/Documents/UNB/TCC/Thiago/Machine learning/Testes_code/dataset_completo/train'
 # x2 ='C:/Users/Bezerra/Documents/UNB/TCC/Thiago/Machine learning/Testes_code/dataset_completo/test'
 image_size = (229,220)
@@ -197,52 +197,14 @@ print(f'> Accuracy: {np.mean(acc_per_fold)} (+- {np.std(acc_per_fold)})')
 print(f'> Loss: {np.mean(loss_per_fold)}')
 print('------------------------------------------------------------------------')
 
-# # metrics = [tf.keras.metrics.TruePositives(thresholds=0.5, name='TP'), tf.keras.metrics.TrueNegatives(thresholds=0.5, name='TN'), tf.keras.metrics.FalsePositives(thresholds=0.5, name='FP'), tf.keras.metrics.FalseNegatives(thresholds=0.5, name='FN'), 'accuracy']
-# rms = optimizers.RMSprop(lr=0.001)#tava 2
-# # |--- Model training ---|----------------------{{{
-# model.compile(loss='BinaryCrossentropy',optimizer=rms,metrics =['accuracy'])#['accuracy']
-# history = model.fit(train_images, train_labels, batch_size=90 , epochs=200, verbose=1 , validation_split = 0.3 ) # bat 10 com 200 epocas
-
-##-----print Metricas-------
-# results = model.evaluate(test_images,test_labels)
-# TP, TN, FP, FN, AC= results[1:]
-# print(TP, TN, FP, FN)
-
-# Acuracia = (TP+TN)/(TP+TN+FP+FN)
-
-# Precisao = TP/(TP+FP)
-# Especificidade = TN/(TN+FP)
-# Sensibilidade = TP/(TP+FN)
-
-# print("Acurácia: {:.5f}".format(Acuracia))
-# print("Precisão: {:.5f}".format(Precisao))
-# print("Especificidade: {:.5f}".format(Especificidade))
-# print("Sensibilidade: {:.5f}".format(Sensibilidade))
-
-#-------------------------
-# plt.plot(history.history['accuracy'], label = 'Training', linewidth = 1.2)
-# plt.plot(history.history['val_accuracy'], label = 'Validation', linewidth = 1.2)
-# plt.xlabel('Epoch')
-# plt.ylabel('Accuracy')
-# plt.legend(loc="upper left")
-# plt.show()
-# plt.plot(history.history['loss'], label = 'Training', linewidth = 1.2)
-# plt.plot(history.history['val_loss'], label = 'Validation', linewidth = 1.2)
-# plt.xlabel('Epoch')
-# plt.ylabel('Loss function')
-# plt.legend(loc="upper left")
-# plt.show()
-#---}}}
-
-# |--- Testing ---|----------------------{{{
-# test_loss,test_acc = model.evaluate(test_images,test_labels)
-# print("Test Accuracy Validacao: ", test_acc)
-# print("Test Loss Validacao: ", test_loss)
-# #---}}}
 
 #------------salvando o modelo---
 print('Salvando o modelo...')
 model.save('fay.h5')
 print('Modelo salvo!')
+
+
+
+
 
 
